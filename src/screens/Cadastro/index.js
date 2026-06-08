@@ -26,11 +26,20 @@ export default function CadastroScreen({ navigation }) {
     try {
       const user = await postUser(data);
       login(user);
-      Alert.alert('Cadastro realizado!', `Bem-vindo, ${data.nome}!`, [
-        { text: 'Ver Catálogo', onPress: () => navigation.navigate('Catálogo') },
-      ]);
+      if (Platform.OS === 'web') {
+        window.alert(`Cadastro realizado!\nBem-vindo, ${data.nome}!`);
+        navigation.navigate('Catálogo');
+      } else {
+        Alert.alert('Cadastro realizado!', `Bem-vindo, ${data.nome}!`, [
+          { text: 'Ver Catálogo', onPress: () => navigation.navigate('Catálogo') },
+        ]);
+      }
     } catch {
-      Alert.alert('Erro', 'Não foi possível realizar o cadastro. Verifique sua conexão.');
+      if (Platform.OS === 'web') {
+        window.alert('Erro\nNão foi possível realizar o cadastro. Verifique sua conexão.');
+      } else {
+        Alert.alert('Erro', 'Não foi possível realizar o cadastro. Verifique sua conexão.');
+      }
     }
   };
 

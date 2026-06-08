@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from 'react';
-import { View, Text, Image, ScrollView, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, Image, ScrollView, TouchableOpacity, Alert, Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useFavorites } from '../../contexts/FavoritesContext';
 import { COLORS } from '../../theme';
@@ -35,11 +35,15 @@ export default function DetalhesScreen({ route, navigation }) {
 
   const handleFavorite = () => {
     if (jaEFavorito) {
-      Alert.alert('Aviso', 'Este produto já está nos seus favoritos.');
+      Platform.OS === 'web'
+        ? window.alert('Aviso\nEste produto já está nos seus favoritos.')
+        : Alert.alert('Aviso', 'Este produto já está nos seus favoritos.');
       return;
     }
     addFavorite(produto);
-    Alert.alert('Adicionado!', `${nome} foi salvo nos favoritos.`);
+    Platform.OS === 'web'
+      ? window.alert(`Adicionado!\n${nome} foi salvo nos favoritos.`)
+      : Alert.alert('Adicionado!', `${nome} foi salvo nos favoritos.`);
   };
 
   return (
