@@ -2,13 +2,22 @@
 
 App mobile de catálogo de produtos eletrônicos desenvolvido com React Native e Expo.
 
-## Funcionalidades
+## Telas
 
-- **Cadastro** — criação de conta com validação de campos (React Hook Form)
-- **Catálogo** — listagem de produtos com filtro por categoria
-- **Detalhes** — informações completas do produto com opção de favoritar
-- **Favoritos** — lista de produtos salvos pelo usuário
-- **Dashboard** — visão geral com estatísticas e gráfico de distribuição por categoria
+### Cadastro
+Formulário de criação de conta com os campos nome, e-mail, senha e telefone. Os campos obrigatórios são validados em tempo real com mensagens de erro inline. Ao concluir o cadastro, o usuário é redirecionado para o Catálogo.
+
+### Catálogo
+Lista todos os produtos disponíveis consumidos via API. Possui filtro por categoria (Smartphones, Notebooks, Acessórios) usando um seletor nativo. Cada card exibe imagem, nome, categoria e preço. Ao tocar em um produto, o usuário é levado para a tela de Detalhes.
+
+### Detalhes
+Exibe as informações completas do produto: imagem em destaque, categoria, nome, preço e descrição. Permite adicionar o produto aos favoritos. Inclui botão de voltar no cabeçalho que retorna à tela de origem (Catálogo ou Favoritos).
+
+### Favoritos
+Lista os produtos salvos pelo usuário durante a sessão. Permite remover itens individualmente. Quando vazia, exibe um botão de atalho para o Catálogo.
+
+### Dashboard
+Painel com estatísticas gerais: total de produtos cadastrados, total de favoritos e distribuição de produtos por categoria em um gráfico de pizza.
 
 ## Stack
 
