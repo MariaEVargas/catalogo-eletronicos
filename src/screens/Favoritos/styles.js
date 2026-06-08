@@ -25,4 +25,16 @@ export default StyleSheet.create({
     fontSize: 14,
     color: COLORS.textLight,
   },
+  btn: {
+    marginTop: 20,
+    backgroundColor: COLORS.primary,
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    borderRadius: 8,
+  },
+  btnText: {
+    color: COLORS.white,
+    fontWeight: '600',
+    fontSize: 15,
+  },
 });

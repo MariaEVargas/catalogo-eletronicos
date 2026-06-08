@@ -14,7 +14,7 @@ const Drawer = createDrawerNavigator();
 const CustomDrawerContent = (props) => (
   <DrawerContentScrollView {...props} style={styles.drawerContainer}>
     <View style={styles.drawerHeader}>
-      <Text style={styles.drawerTitle}>⚡ ElectroShop</Text>
+      <Text style={styles.drawerTitle}>⚡ TechZone</Text>
       <Text style={styles.drawerSubtitle}>Catálogo de Eletrônicos</Text>
     </View>
     <DrawerItemList {...props} />

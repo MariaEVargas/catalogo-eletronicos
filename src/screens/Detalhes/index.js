@@ -1,10 +1,33 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import { View, Text, Image, ScrollView, TouchableOpacity, Alert } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { useFavorites } from '../../contexts/FavoritesContext';
+import { COLORS } from '../../theme';
 import styles from './styles';
 
-export default function DetalhesScreen({ route }) {
-  const { produto } = route.params;
+export default function DetalhesScreen({ route, navigation }) {
+  const produto = route.params?.produto;
+
+  const from = route.params?.from ?? 'Catálogo';
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => (
+        <TouchableOpacity onPress={() => navigation.navigate(from)} style={{ marginLeft: 12 }}>
+          <Ionicons name="arrow-back" size={24} color={COLORS.white} />
+        </TouchableOpacity>
+      ),
+    });
+  }, [navigation, from]);
+
+  if (!produto) {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text style={{ fontSize: 16, color: '#666' }}>Produto não encontrado.</Text>
+      </View>
+    );
+  }
+
   const { nome, descricao, preco, categoria, imagem } = produto;
   const { addFavorite, isFavorite } = useFavorites();
 

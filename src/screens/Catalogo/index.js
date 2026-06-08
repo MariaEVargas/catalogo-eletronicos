@@ -41,11 +41,11 @@ export default function CatalogoScreen({ navigation }) {
 
       <FlatList
         data={produtosFiltrados}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item, index) => String(item.id ?? index)}
         renderItem={({ item }) => (
           <ProductCard
             produto={item}
-            onPress={() => navigation.navigate('Detalhes', { produto: item })}
+            onPress={() => navigation.navigate('Detalhes', { produto: item, from: 'Catálogo' })}
           />
         )}
         ListEmptyComponent={

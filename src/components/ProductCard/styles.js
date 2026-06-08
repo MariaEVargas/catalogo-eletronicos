@@ -42,4 +42,12 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     color: COLORS.primary,
   },
+  imagePlaceholder: {
+    backgroundColor: COLORS.border,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  imagePlaceholderText: {
+    fontSize: 32,
+  },
 });
